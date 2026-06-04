@@ -95,7 +95,10 @@ export const verifySecret = async ({
 
 export const getCurrentUser = async () => {
   try {
-    const { databases, account } = await createSessionClient();
+    const client = await createSessionClient();
+    if (!client) return null;
+
+    const { databases, account } = client;
 
     const result = await account.get();
 
@@ -114,7 +117,10 @@ export const getCurrentUser = async () => {
 };
 
 export const signOutUser = async () => {
-  const { account } = await createSessionClient();
+  const client = await createSessionClient();
+  if (!client) redirect("/sign-in");
+
+  const { account } = client;
 
   try {
     await account.deleteSession("current");

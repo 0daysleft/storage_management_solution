@@ -62,7 +62,7 @@ export const uploadFile = async ({
 };
 
 const createQueries = (
-  currentUser: Models.Document,
+  currentUser: Models.Document | any,
   types: string[],
   searchText: string,
   sort: string,
@@ -196,7 +196,9 @@ export const deleteFile = async ({
 // ============================== TOTAL FILE SPACE USED
 export async function getTotalSpaceUsed() {
   try {
-    const { databases } = await createSessionClient();
+    const client = await createSessionClient();
+    if (!client) throw new Error("Failed to create session client");
+    const { databases } = client;
     const currentUser = await getCurrentUser();
     if (!currentUser) throw new Error("User is not authenticated.");
 
