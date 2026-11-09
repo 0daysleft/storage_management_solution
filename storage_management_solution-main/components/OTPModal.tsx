@@ -69,6 +69,7 @@ const OtpModal = ({
               height={20}
               onClick={() => setIsOpen(false)}
               className="otp-close-button"
+              
             />
           </AlertDialogTitle>
           <AlertDialogDescription className="subtitle-2 text-center text-light-100">

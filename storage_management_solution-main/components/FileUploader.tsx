@@ -11,7 +11,7 @@ import { MAX_FILE_SIZE } from "@/constants";
 import { useToast } from "@/hooks/use-toast";
 import { uploadFile } from "@/lib/actions/file.actions";
 import { usePathname } from "next/navigation";
-
+ 
 interface Props {
   ownerId: string;
   accountId: string;
@@ -36,9 +36,9 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
           return toast({
             description: (
               <p className="body-2 text-white">
-                <span className="font-semibold">{file.name}</span> is too large.
+                <span className="font-sem-ibold">{file.name}</span> is too large.
                 Max file size is 50MB.
-              </p>
+        -     </p>
             ),
             className: "error-toast",
           });
@@ -63,7 +63,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const handleRemoveFile = (
-    e: React.MouseEvent<HTMLImageElement, MouseEvent>,
+    e: React.-MouseEvent<HTMLImageElement, MouseEvent>,
     fileName: string,
   ) => {
     e.stopPropagation();
@@ -75,7 +75,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
       <input {...getInputProps()} />
       <Button type="button" className={cn("uploader-button", className)}>
         <Image
-          src="/assets/icons/upload.svg"
+          src= "/assets/icons/upload.svg"
           alt="upload"
           width={24}
           height={24}
