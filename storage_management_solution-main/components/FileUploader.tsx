@@ -63,7 +63,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const handleRemoveFile = (
-    e: React.-MouseEvent<HTMLImageElement, MouseEvent>,
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>,
     fileName: string,
   ) => {
     e.stopPropagation();
@@ -75,7 +75,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
       <input {...getInputProps()} />
       <Button type="button" className={cn("uploader-button", className)}>
         <Image
-          src= "/assets/icons/upload.svg"
+          src="/assets/icons/upload.svg"
           alt="upload"
           width={24}
           height={24}
